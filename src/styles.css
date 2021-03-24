@@ -19,3 +19,11 @@ body {
   background-image: url('./images/bg-pattern.png');
   text-align: center;
 }
+
+li {
+  list-style-type: none;
+}
+
+.is-hidden {
+  display: none;
+}
