@@ -25,17 +25,7 @@ function onImg() {
   .then(images => {
     if(images.length > 10) loadMoreBtn.classList.remove('is-hidden');
    galleryRef.insertAdjacentHTML('beforeend', templates(images));
-  });
-}
-
-function scrollToNewElements() {
-  const totalScrollHeight = galleryRef.clientHeight + 80
-  setTimeout(() => {
-    window.scrollTo({
-      top: totalScrollHeight,
-      behavior: 'smooth',
-    });
-  }, 100);
+  })
 }
 
 loadMoreBtn.addEventListener('click', event => {
@@ -44,6 +34,16 @@ loadMoreBtn.addEventListener('click', event => {
     .then(onImg)
     .then(scrollToNewElements);
 });
+
+function scrollToNewElements() {
+  const totalScrollHeight = galleryRef.clientHeight + 80;
+  setTimeout(() => {
+    window.scrollTo({
+      top: totalScrollHeight,
+      behavior: 'smooth',
+    });
+  }, 100);
+}
 
 function openModal(event) {
   if (event.target.nodeName !== 'IMG') {
